@@ -4,7 +4,7 @@ const serviceAccountKey = {
   type: "service_account",
   project_id: "notion-but-better",
   private_key_id: "1ed173062c6b98dfc6ef56aea54cd5aef61e23be",
-  private_key: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n"),
+  private_key: process.env.FIREBASE_PRIVATE_KEY,
   client_email:
     "firebase-adminsdk-ikuju@notion-but-better.iam.gserviceaccount.com",
   client_id: "108908249923037526444",
