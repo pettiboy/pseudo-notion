@@ -38,12 +38,12 @@ const PageContent = () => {
 
   const handleTitleChange = async (e) => {
     setTitle(e.target.value);
-    await updateTitle(location.hash.substring(1), e.target.value, content);
+    await updateTitle(location.hash.substring(1), e.target.value);
   };
 
   const handleContentChange = async (e) => {
     setContent(e.target.value);
-    await updateContent(location.hash.substring(1), e.target.value, content);
+    await updateContent(location.hash.substring(1), e.target.value);
   };
 
   return (
