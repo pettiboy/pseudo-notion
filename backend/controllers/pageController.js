@@ -81,7 +81,7 @@ export const deletePageController = asyncHandler(async (req, res) => {
 
   try {
     //delete functionality
-    const page = await User.update(
+    const page = await User.updateOne(
       { uid: req.userId },
       { $pull: { pages: { _id: pageId } } }
     );

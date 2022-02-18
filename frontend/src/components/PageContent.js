@@ -19,6 +19,7 @@ const PageContent = () => {
     const data = await getPage(location.hash.substring(1));
     if (data === null) {
       setNoneSelected(true);
+      setPageData(undefined);
     } else {
       setPageData(data);
 

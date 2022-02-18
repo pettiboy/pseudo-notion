@@ -9,6 +9,8 @@ import { getAllPages } from "../api/getAllPages";
 import Center from "./utils/Center";
 import { newPage } from "../api/newPage";
 import { useNavigate, useLocation } from "react-router-dom";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import { deletePage } from "../api/deletePage";
 
 const SidebarContent = () => {
   const location = useLocation();
@@ -47,6 +49,12 @@ const SidebarContent = () => {
     selectPage(newPageData._id);
   };
 
+  const onPressDelete = async (removeId) => {
+    await deletePage(removeId);
+    setPagesData((pages) => pages.filter((page) => page._id !== removeId));
+    navigate(`#`);
+  };
+
   return (
     <div
       style={{
@@ -78,9 +86,12 @@ const SidebarContent = () => {
                 button
                 key={data._id}
                 selected={data._id === selectedPageId}
-                onClick={() => selectPage(data._id)}
               >
-                <ListItemText primary={data.title} />
+                <ListItemText
+                  primary={data.title}
+                  onClick={() => selectPage(data._id)}
+                />
+                <DeleteOutlineIcon onClick={() => onPressDelete(data._id)} />
               </ListItem>
             ))
           ) : (
