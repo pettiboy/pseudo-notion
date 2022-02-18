@@ -25,7 +25,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(tokenToID);
 
 // database
-mongoose.connect(process.env.NODE_DATABASE_URL, { useNewUrlParser: true }); // connect to the database
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true }); // connect to the database
 const db = mongoose.connection; // store connection
 db.on("error", (error) => console.error(error)); // error handling
 db.once("open", () => console.log("connected to db")); // log success message on successful connection
