@@ -34,9 +34,9 @@ db.once("open", () => console.log("connected to db")); // log success message on
 // map routes starting with '/page' to the router in 'routes/page.js'
 server.use("/page", pageRouter);
 
-// // listen for requests
-// server.listen(process.env.PORT || "8001", () => {
-//   console.log(`listening to port ${process.env.PORT || "8001"}`);
-// });
+// listen for requests
+server.listen(process.env.PORT || "8001", () => {
+  console.log(`listening to port ${process.env.PORT || "8001"}`);
+});
 
 export default server;
