@@ -8,14 +8,6 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import tokenToID from "./src/middleware/authenticateToken.js";
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", { structuredData: true });
-//   response.send("Hello from Firebase!");
-// });
-
 // initialise express server
 const server = express();
 
@@ -45,4 +37,4 @@ db.once("open", () => console.log("connected to db")); // log success message on
 // map routes starting with '/page' to the router in 'routes/page.js'
 server.use("/page", pageRouter);
 
-export const api = functions.https.onRequest(server);
+export const api = functions.region("asia-south1").https.onRequest(server);

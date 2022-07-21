@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8001/";
+const BASE_URL = "https://asia-south1-pseudo-notion.cloudfunctions.net/api/";
 
 export const GET = async (url, object) => {
   const token = localStorage.getItem("Token");
@@ -69,6 +69,3 @@ const serializeObject = (object) => {
     .map(([key, val]) => `${key}=${val}`)
     .join("&");
 };
-
-
-
