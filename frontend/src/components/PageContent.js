@@ -5,6 +5,8 @@ import {
   CircularProgress,
   Typography,
   Button,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 import Center from "../components/utils/Center";
@@ -15,6 +17,7 @@ const PageContent = () => {
   const [pageData, setPageData] = useState();
   const [noneSelected, setNoneSelected] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [open, setOpen] = useState(false);
 
   const [title, setTitle] = useState("");
   const [prevTitle, setPrevTitle] = useState("");
@@ -65,6 +68,12 @@ const PageContent = () => {
     if (content !== prevContent) {
       await updateContent(location.hash.substring(1), content);
     }
+    setOpen(true);
+  };
+
+  const handleClose = (_event, reason) => {
+    if (reason === "clickaway") return;
+    setOpen(false);
   };
 
   document.onkeydown = (e) => {
@@ -135,6 +144,17 @@ const PageContent = () => {
           </Typography>
         </Center>
       )}
+
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Saved
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
