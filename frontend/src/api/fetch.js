@@ -36,6 +36,7 @@ export const GET = async (url, object) => {
 };
 
 export const POST = async (url, object) => {
+  console.log("requesting", url);
   const token = localStorage.getItem("Token");
   let headers;
   if (token) {
