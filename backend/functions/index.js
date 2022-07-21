@@ -19,7 +19,7 @@ server.get("/test", (req, res) => {
 server.use(express.json());
 
 // cors
-const allowedOrigins = ["https://pettiboy.github.io"];
+const allowedOrigins = ["https://pettiboy.github.io", "http://localhost:3002"];
 server.use(
   cors({
     origin: (origin, callback) => {
