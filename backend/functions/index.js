@@ -18,8 +18,21 @@ server.get("/test", (req, res) => {
 // solves undefined problem in POST requests
 server.use(express.json());
 
-//fix cors
-server.use(cors());
+// cors
+const allowedOrigins = ["https://pettiboy.github.io"];
+server.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg =
+          "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+      return callback(null, true);
+    },
+  })
+);
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));

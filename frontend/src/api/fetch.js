@@ -1,4 +1,5 @@
 const BASE_URL = "https://asia-south1-pseudo-notion.cloudfunctions.net/api/";
+// const BASE_URL = "http://localhost:5001/pseudo-notion/asia-south1/api/";
 
 export const GET = async (url, object) => {
   const token = localStorage.getItem("Token");
