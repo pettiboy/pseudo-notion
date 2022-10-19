@@ -1,4 +1,5 @@
 import "dotenv/config";
+
 import express from "express";
 import pageRouter from "./routes/page.js";
 import mongoose from "mongoose";
@@ -14,9 +15,6 @@ server.use(cors());
 
 // solves undefined problem in POST requests
 server.use(express.json());
-
-//fix cors
-server.use(cors());
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
