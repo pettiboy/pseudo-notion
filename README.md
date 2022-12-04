@@ -18,7 +18,7 @@ Website similar to **notion** built using the `MERN` ([MongoDB](https://mongodb.
 
 ## 🎞 Demo
 
-### Try it your self [here](https://pettiboy.github.io/react-ui-scrollspy)!
+### Try it your self [here](https://pseudo-notion.pettiboy.com)!
 
 | `Dark Mode`                              | `Light Mode`                               |
 | :--------------------------------------- | :----------------------------------------- |
